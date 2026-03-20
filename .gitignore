@@ -53,6 +53,3 @@
 
 # Embedded web-server pid file
 /.web-server-pid
-
-# Internal evaluation docs
-RUBRICA_INTERNA_PARANYS.md

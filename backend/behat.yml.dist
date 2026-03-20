@@ -1,0 +1,16 @@
+default:
+    extensions:
+        FriendsOfBehat\SymfonyExtension:
+            bootstrap: config/bootstrap.php
+            kernel:
+                environment: test
+                debug: false
+
+    suites:
+        default:
+            contexts:
+                - App\Tests\Behat\FeatureContext
+
+    gherkin:
+        filters:
+            tags: "~@wip"
