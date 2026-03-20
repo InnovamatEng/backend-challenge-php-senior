@@ -112,7 +112,7 @@ The challenge is assessed across the following dimensions:
 | Security | Authentication/authorization robustness, safe data access patterns, and risk mitigation mindset |
 | Testing Strategy | Appropriate test pyramid, test quality, meaningful coverage of edge cases, and confidence in changes |
 | API, Observability & Concurrency | API consistency, operational visibility (logging), and data integrity under concurrent scenarios |
-| Developer Experience & DevOps | Efficient Docker builds (layer cache usage), reproducible environments, and practical local workflow; avoid copying the full project before `composer install` as it breaks dependency-layer caching |
+| Developer Experience & DevOps | Efficient Docker builds (layer cache usage), reproducible environments, and practical local workflow; |
 
 ---
 
