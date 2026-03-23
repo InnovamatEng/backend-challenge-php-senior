@@ -93,7 +93,7 @@ on the activity and the score.
 7. ...
 8. ...
 9. A15 + 145s + "1_0_2" -> Score= 100% -> Next activity: ~
-
+ 
 ## It is asked to:
 
 1. The main goal is to implement the adaptive itinerary progress, including level jumping.
