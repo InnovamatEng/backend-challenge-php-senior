@@ -49,7 +49,9 @@ If the activity done is the last activity of the itinerary and it is correctly c
 
 The score is computed comparing the given answer with the solution of the activity.
 
-_Bonus:_ Additionaly, and to provide the adaptative factor to the itinerary, the API will do an additional computation to
+## Exercise
+
+To provide more adaptability to the itinerary, the API will do an additional computation to
 check if the student can pass to the next level of difficulty. This second computation will take into account the time spent
 on the activity and the score.
 
@@ -57,7 +59,7 @@ on the activity and the score.
 | :-------------------------------------------------- | :-------------------------------------------------------------------------------------- |
 | score > 75% & time < 50% of the estimated time      | Pass to the next level of difficulty                                                    |
 | score > 75% & NOT(time < 50% of the estimated time) | Mantain level of difficulty                                                             |
-| score < 20% & previous level jump                   | Move back one level (and go back to the next activity from the last completed activity) |
+| score < 20% & we did a level jump just before       | Move back one level (and go back to the next activity from the last completed activity) |
 
 ## Example:
 
@@ -93,7 +95,7 @@ on the activity and the score.
 7. ...
 8. ...
 9. A15 + 145s + "1_0_2" -> Score= 100% -> Next activity: ~
- 
+
 ## It is asked to:
 
 1. The main goal is to implement the adaptive itinerary progress, including level jumping.
@@ -105,14 +107,14 @@ on the activity and the score.
 
 The challenge is assessed across the following dimensions:
 
-| Dimension | What we evaluate |
-|-----------|------------------|
-| Architecture & DDD | Clear boundaries between layers, proper use of domain concepts, and maintainable design decisions |
-| Code Quality & SOLID | Readability, cohesion, duplication control, error handling quality, and refactoring depth |
-| Security | Authentication/authorization robustness, safe data access patterns, and risk mitigation mindset |
-| Testing Strategy | Appropriate test pyramid, test quality, meaningful coverage of edge cases, and confidence in changes |
-| API, Observability & Concurrency | API consistency, operational visibility (logging), and data integrity under concurrent scenarios |
-| Developer Experience & DevOps | Efficient Docker builds (layer cache usage), reproducible environments, and practical local workflow; |
+| Dimension                        | What we evaluate                                                                                      |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| Architecture & DDD               | Clear boundaries between layers, proper use of domain concepts, and maintainable design decisions     |
+| Code Quality & SOLID             | Readability, cohesion, duplication control, error handling quality, and refactoring depth             |
+| Security                         | Authentication/authorization robustness, safe data access patterns, and risk mitigation mindset       |
+| Testing Strategy                 | Appropriate test pyramid, test quality, meaningful coverage of edge cases, and confidence in changes  |
+| API, Observability & Concurrency | API consistency, operational visibility (logging), and data integrity under concurrent scenarios      |
+| Developer Experience & DevOps    | Efficient Docker builds (layer cache usage), reproducible environments, and practical local workflow; |
 
 ---
 
@@ -139,23 +141,23 @@ make setup
 
 ### Test Credentials
 
-| Student     | Email                   | Password    |
-|-------------|-------------------------|-------------|
-| Alice Smith | alice@innovamat.com     | password123 |
-| Bob Jones   | bob@innovamat.com       | password123 |
+| Student     | Email               | Password    |
+| ----------- | ------------------- | ----------- |
+| Alice Smith | alice@innovamat.com | password123 |
+| Bob Jones   | bob@innovamat.com   | password123 |
 
 - **Alice**: has not started the itinerary yet
 - **Bob**: has completed activity A1 and is currently on A2
 
 ### API Endpoints
 
-| Method | URL                             | Description                      |
-|--------|---------------------------------|----------------------------------|
-| POST   | `/api/login`                    | Authenticate student, get JWT    |
-| GET    | `/api/getNextActivity`          | Get the next activity for student|
-| POST   | `/api/completeActivity`         | Submit answers for an activity   |
-| GET    | `/api/students`                 | List all students                |
-| GET    | `/api/itineraries`              | List all itineraries             |
+| Method | URL                     | Description                       |
+| ------ | ----------------------- | --------------------------------- |
+| POST   | `/api/login`            | Authenticate student, get JWT     |
+| GET    | `/api/getNextActivity`  | Get the next activity for student |
+| POST   | `/api/completeActivity` | Submit answers for an activity    |
+| GET    | `/api/students`         | List all students                 |
+| GET    | `/api/itineraries`      | List all itineraries              |
 
 ### Example API Usage
 
