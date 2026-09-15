@@ -137,6 +137,7 @@ make setup
 # Access the application
 # Backend API:  http://localhost:8080/api
 # Frontend:     http://localhost:3000
+# Reporting:    http://localhost:8081
 ```
 
 ### Test Credentials
@@ -181,27 +182,35 @@ curl -X POST http://localhost:8080/api/completeActivity \
 ### Running Tests
 
 ```bash
-# All tests
+# All tests of every app, from the repository root
 make test
 
-# Unit tests only
-make test-unit
+# Student platform only
+make -C apps/student-platform test
+make -C apps/student-platform test-unit
+make -C apps/student-platform test-integration
+make -C apps/student-platform test-behat
 
-# Integration tests
-make test-integration
-
-# Acceptance tests (Behat)
-make test-behat
+# Reporting service only
+make -C apps/reporting test
 ```
 
 ### Useful Commands
 
+The root `Makefile` only orchestrates: `make setup`, `make test`, `make up`, `make down`, `make build`.
+Each app has its own `Makefile` with the app-specific targets. Run `make help` in any of them, or from the root:
+
 ```bash
-make shell          # Open shell in PHP container
-make seed           # Reload fixtures (reset student progress)
-make migrate        # Run pending migrations
-make migration-diff # Generate migration from entity changes
-make logs           # Tail container logs
+make -C apps/student-platform help
+make -C apps/student-platform shell           # Open shell in the PHP container
+make -C apps/student-platform seed            # Reload fixtures (reset student progress)
+make -C apps/student-platform migrate         # Run pending migrations
+make -C apps/student-platform migration-diff  # Generate migration from entity changes
+make -C apps/student-platform logs            # Tail container logs
+
+make -C apps/reporting help
+make -C apps/reporting shell
+make -C apps/reporting logs
 ```
 
 ### Debugging with Xdebug (macOS)
@@ -211,7 +220,7 @@ Xdebug is preconfigured in the PHP Docker container and exposed on port `9003`.
 1. Rebuild and restart containers so the extension is installed:
 
 ```bash
-docker compose build php
+docker compose build platform_php
 docker compose up -d
 ```
 
@@ -258,4 +267,9 @@ apps/student-platform/frontend/
 │   ├── components/
 │   ├── pages/
 │   └── types/
+
+apps/reporting/          # Reporting service (Symfony), receives activity attempts from the platform
+├── src/
+│   └── Infrastructure/Http/Controller/
+└── tests/
 ```
