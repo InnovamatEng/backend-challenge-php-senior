@@ -8,6 +8,7 @@ use App\Domain\Repository\ActivityRepositoryInterface;
 use App\Domain\Repository\ItineraryRepositoryInterface;
 use App\Domain\Repository\StudentProgressRepositoryInterface;
 use App\Domain\Repository\StudentRepositoryInterface;
+use App\Infrastructure\Reporting\ReportingClient;
 use Doctrine\ORM\EntityManagerInterface;
 class ActivityService
 {
@@ -17,6 +18,7 @@ class ActivityService
         private readonly StudentRepositoryInterface $studentRepository,
         private readonly StudentProgressRepositoryInterface $progressRepository,
         private readonly EntityManagerInterface $entityManager,
+        private readonly ReportingClient $reportingClient,
     ) {
     }
 
@@ -115,6 +117,17 @@ class ActivityService
                 $progress->setCurrentActivity($nextActivity);
             }
         }
+
+        $this->reportingClient->registerAttempt([
+            'student_id' => $student->getId(),
+            'activity_id' => $activity->getIdentifier(),
+            'itinerary' => $itinerary->getSlug(),
+            'score' => $score,
+            'passed' => $score >= 0.75,
+            'time_spent' => $timeSpent,
+            'completed_at' => (new \DateTimeImmutable())->format(\DateTimeInterface::ATOM),
+        ]);
+
         $this->entityManager->flush();
 
         return [

@@ -12,6 +12,10 @@ services:
             - '../src/Domain/Model/'
             - '../src/Kernel.php'
 
+    App\Infrastructure\Reporting\ReportingClient:
+        arguments:
+            $baseUrl: '%env(REPORTING_BASE_URL)%'
+
     App\Domain\Repository\ActivityRepositoryInterface:
         alias: App\Infrastructure\Persistence\Doctrine\DoctrineActivityRepository
 

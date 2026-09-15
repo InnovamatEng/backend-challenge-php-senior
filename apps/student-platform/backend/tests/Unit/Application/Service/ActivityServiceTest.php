@@ -11,6 +11,7 @@ use App\Domain\Repository\ActivityRepositoryInterface;
 use App\Domain\Repository\ItineraryRepositoryInterface;
 use App\Domain\Repository\StudentProgressRepositoryInterface;
 use App\Domain\Repository\StudentRepositoryInterface;
+use App\Infrastructure\Reporting\ReportingClient;
 use Doctrine\ORM\EntityManagerInterface;
 use PHPUnit\Framework\TestCase;
 class ActivityServiceTest extends TestCase
@@ -20,6 +21,7 @@ class ActivityServiceTest extends TestCase
     private StudentRepositoryInterface $studentRepository;
     private StudentProgressRepositoryInterface $progressRepository;
     private EntityManagerInterface $entityManager;
+    private ReportingClient $reportingClient;
     private ActivityService $service;
 
     protected function setUp(): void
@@ -29,6 +31,7 @@ class ActivityServiceTest extends TestCase
         $this->studentRepository = $this->createMock(StudentRepositoryInterface::class);
         $this->progressRepository = $this->createMock(StudentProgressRepositoryInterface::class);
         $this->entityManager = $this->createMock(EntityManagerInterface::class);
+        $this->reportingClient = $this->createMock(ReportingClient::class);
 
         $this->service = new ActivityService(
             $this->activityRepository,
@@ -36,6 +39,7 @@ class ActivityServiceTest extends TestCase
             $this->studentRepository,
             $this->progressRepository,
             $this->entityManager,
+            $this->reportingClient,
         );
     }
 
@@ -99,6 +103,7 @@ class ActivityServiceTest extends TestCase
         $this->progressRepository->method('findByStudentAndItinerary')->willReturn($progress);
         $this->activityRepository->method('findAllByItinerary')->willReturn([$currentActivity, $nextActivity]);
         $this->entityManager->expects($this->once())->method('flush');
+        $this->reportingClient->expects($this->once())->method('registerAttempt');
 
         $result = $this->service->completeActivity(1, 'A1', '1_0_2', 90);
 
