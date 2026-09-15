@@ -217,7 +217,7 @@ docker compose up -d
 
 2. In Cursor/VS Code, install the `PHP Debug` extension (`xdebug.php-debug`).
 3. Use the included launch config and start **Listen for Xdebug (Docker)**.
-4. Set breakpoints in files under `backend/src`.
+4. Set breakpoints in files under `apps/student-platform/backend/src`.
 5. Trigger any API request (for example, with `curl` or the frontend). The debugger will stop on breakpoints.
 
 Optional environment overrides in `docker-compose.yml`:
@@ -233,7 +233,7 @@ Optional environment overrides in `docker-compose.yml`:
 ## Project Structure
 
 ```
-backend/
+apps/student-platform/backend/
 ├── src/
 │   ├── Domain/          # Domain layer: models, repository interfaces, domain services
 │   │   ├── Model/       # Entities
@@ -252,7 +252,7 @@ backend/
 │   └── Behat/
 └── features/            # Behat .feature files
 
-frontend/
+apps/student-platform/frontend/
 ├── src/
 │   ├── api/
 │   ├── components/

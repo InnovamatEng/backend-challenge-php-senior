@@ -20,9 +20,9 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www
 
-COPY backend/etc/docker/php/conf.d/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+COPY apps/student-platform/backend/etc/docker/php/conf.d/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
-COPY backend/ .
+COPY apps/student-platform/backend/ .
 
 RUN composer install --no-interaction --optimize-autoloader
 

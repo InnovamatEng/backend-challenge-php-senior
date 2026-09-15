@@ -2,7 +2,7 @@ services:
   php:
     build:
       context: .
-      dockerfile: backend/etc/docker/php/Dockerfile
+      dockerfile: apps/student-platform/backend/etc/docker/php/Dockerfile
     container_name: innovamat_php
     environment:
       XDEBUG_MODE: ${XDEBUG_MODE:-debug,develop}
@@ -11,7 +11,7 @@ services:
       XDEBUG_CLIENT_PORT: ${XDEBUG_CLIENT_PORT:-9003}
       XDEBUG_IDEKEY: ${XDEBUG_IDEKEY:-VSCODE}
     volumes:
-      - ./backend:/var/www
+      - ./apps/student-platform/backend:/var/www
     networks:
       - innovamat
     depends_on:
@@ -24,8 +24,8 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./backend:/var/www
-      - ./backend/etc/docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./apps/student-platform/backend:/var/www
+      - ./apps/student-platform/backend/etc/docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
     networks:
       - innovamat
     depends_on:
@@ -76,7 +76,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./frontend:/app
+      - ./apps/student-platform/frontend:/app
     networks:
       - innovamat
     command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
