@@ -61,15 +61,11 @@ The work is described as two tickets, to be done in this order:
 | Block                            | Duration |
 | -------------------------------- | -------- |
 | Introduction and setup check     | 15 min   |
-| First ticket: #4821 (bug)        | ~1h 45   |
+| First ticket: #4821 (bug)        | ~1h 15   |
 | Break                            | 5-10 min |
-| Second ticket: #4795 (feature)   | ~1h 45   |
+| Second ticket: #4795 (feature)   | ~2h 15   |
 
-The durations are an orientation, not a limit per ticket. Leave time at the end of each block to walk us through what you did and what you would do next.
-
-### Use of AI assistants
-
-_To be defined._
+The durations are an orientation, not a limit per ticket.
 
 ## Evaluation Criteria
 
