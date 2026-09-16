@@ -29,6 +29,11 @@ export default function LoginPage() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    // A previous session's token would be sent along and rejected by the API
+    localStorage.removeItem('jwt_token');
+    localStorage.removeItem('current_student');
+    localStorage.removeItem('current_itinerary');
+
     Promise.all([
       apiClient.get('/students'),
       apiClient.get('/itineraries'),
