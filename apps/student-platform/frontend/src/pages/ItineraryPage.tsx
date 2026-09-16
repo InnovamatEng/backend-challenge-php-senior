@@ -87,9 +87,8 @@ export default function ItineraryPage() {
       if (response.data.itinerary_completed) {
         navigate('/completed');
       }
-    } catch (e: unknown) {
-      const msg = (e as { response?: { data?: { error?: string } } })?.response?.data?.error;
-      setError(msg ?? 'Error submitting answers');
+    } catch {
+      setError('Something went wrong. Please try again.');
     } finally {
       setSubmitting(false);
     }
