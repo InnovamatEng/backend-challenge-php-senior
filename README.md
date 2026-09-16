@@ -63,7 +63,7 @@ The work is described as two tickets, to be done in this order:
 | Introduction and setup check     | 15 min   |
 | First ticket: #4821 (bug)        | ~1h 15   |
 | Break                            | 5-10 min |
-| Second ticket: #4795 (feature)   | ~2h 15   |
+| Second ticket: #4795 (feature)   | ~2h      |
 
 The durations are an orientation, not a limit per ticket.
 
