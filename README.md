@@ -49,6 +49,28 @@ If the activity done is the last activity of the itinerary and it is correctly c
 
 The score is computed comparing the given answer with the solution of the activity.
 
+## The Challenge
+
+The work is described as two tickets, to be done in this order:
+
+1. [#4821 · Finishing an activity is slow and sometimes fails](docs/tickets/4821-error-when-finishing-an-activity.md) (bug)
+2. [#4795 · Adaptive difficulty: let students jump levels](docs/tickets/4795-adaptive-difficulty-level-jumping.md) (feature)
+
+### Session schedule
+
+| Block                            | Duration |
+| -------------------------------- | -------- |
+| Introduction and setup check     | 15 min   |
+| First ticket: #4821 (bug)        | ~1h 45   |
+| Break                            | 5-10 min |
+| Second ticket: #4795 (feature)   | ~1h 45   |
+
+The durations are an orientation, not a limit per ticket. Leave time at the end of each block to walk us through what you did and what you would do next.
+
+### Use of AI assistants
+
+_To be defined._
+
 ## Evaluation Criteria
 
 The challenge is assessed across the following dimensions:
