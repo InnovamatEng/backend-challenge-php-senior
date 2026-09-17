@@ -18,7 +18,8 @@ class ReportingClient
             'json' => $attempt,
         ]);
 
-        // Make sure the reporting service has registered the attempt before continuing
-        $response->getContent();
+        if ($response->getStatusCode() !== 200) {
+            throw new \RuntimeException(sprintf('Reporting rejected the attempt (HTTP %d)', $response->getStatusCode()));
+        }
     }
 }
