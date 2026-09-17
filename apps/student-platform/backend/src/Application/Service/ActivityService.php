@@ -3,9 +3,7 @@
 namespace App\Application\Service;
 
 use App\Domain\Model\Activity;
-use App\Domain\Model\ActivityAttempt;
 use App\Domain\Model\StudentProgress;
-use App\Domain\Repository\ActivityAttemptRepositoryInterface;
 use App\Domain\Repository\ActivityRepositoryInterface;
 use App\Domain\Repository\ItineraryRepositoryInterface;
 use App\Domain\Repository\StudentProgressRepositoryInterface;
@@ -19,7 +17,6 @@ class ActivityService
         private readonly ItineraryRepositoryInterface $itineraryRepository,
         private readonly StudentRepositoryInterface $studentRepository,
         private readonly StudentProgressRepositoryInterface $progressRepository,
-        private readonly ActivityAttemptRepositoryInterface $attemptRepository,
         private readonly EntityManagerInterface $entityManager,
         private readonly ReportingClient $reportingClient,
     ) {
@@ -121,23 +118,14 @@ class ActivityService
             }
         }
 
-        $attempt = new ActivityAttempt();
-        $attempt->setStudentId($student->getId());
-        $attempt->setActivityIdentifier($activity->getIdentifier());
-        $attempt->setItinerarySlug($itinerary->getSlug());
-        $attempt->setScore($score);
-        $attempt->setTimeSpent($timeSpent);
-        $attempt->setAnswers($answers);
-        $this->attemptRepository->add($attempt);
-
         $this->reportingClient->registerAttempt([
-            'student_id' => $attempt->getStudentId(),
-            'activity_id' => $attempt->getActivityIdentifier(),
-            'itinerary' => $attempt->getItinerarySlug(),
-            'score' => $attempt->getScore(),
+            'student_id' => $student->getId(),
+            'activity_id' => $activity->getIdentifier(),
+            'itinerary' => $itinerary->getSlug(),
+            'score' => $score,
             'passed' => $score >= 0.75,
-            'time_spent' => $attempt->getTimeSpent(),
-            'completed_at' => $attempt->getCompletedAt()->format(\DateTimeInterface::ATOM),
+            'time_spent' => $timeSpent,
+            'completed_at' => (new \DateTimeImmutable())->format(\DateTimeInterface::ATOM),
         ]);
 
         $this->entityManager->flush();

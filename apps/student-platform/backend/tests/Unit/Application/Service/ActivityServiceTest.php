@@ -7,7 +7,6 @@ use App\Domain\Model\Activity;
 use App\Domain\Model\Itinerary;
 use App\Domain\Model\Student;
 use App\Domain\Model\StudentProgress;
-use App\Domain\Repository\ActivityAttemptRepositoryInterface;
 use App\Domain\Repository\ActivityRepositoryInterface;
 use App\Domain\Repository\ItineraryRepositoryInterface;
 use App\Domain\Repository\StudentProgressRepositoryInterface;
@@ -21,7 +20,6 @@ class ActivityServiceTest extends TestCase
     private ItineraryRepositoryInterface $itineraryRepository;
     private StudentRepositoryInterface $studentRepository;
     private StudentProgressRepositoryInterface $progressRepository;
-    private ActivityAttemptRepositoryInterface $attemptRepository;
     private EntityManagerInterface $entityManager;
     private ReportingClient $reportingClient;
     private ActivityService $service;
@@ -32,7 +30,6 @@ class ActivityServiceTest extends TestCase
         $this->itineraryRepository = $this->createMock(ItineraryRepositoryInterface::class);
         $this->studentRepository = $this->createMock(StudentRepositoryInterface::class);
         $this->progressRepository = $this->createMock(StudentProgressRepositoryInterface::class);
-        $this->attemptRepository = $this->createMock(ActivityAttemptRepositoryInterface::class);
         $this->entityManager = $this->createMock(EntityManagerInterface::class);
         $this->reportingClient = $this->createMock(ReportingClient::class);
 
@@ -41,7 +38,6 @@ class ActivityServiceTest extends TestCase
             $this->itineraryRepository,
             $this->studentRepository,
             $this->progressRepository,
-            $this->attemptRepository,
             $this->entityManager,
             $this->reportingClient,
         );
@@ -107,7 +103,6 @@ class ActivityServiceTest extends TestCase
         $this->progressRepository->method('findByStudentAndItinerary')->willReturn($progress);
         $this->activityRepository->method('findAllByItinerary')->willReturn([$currentActivity, $nextActivity]);
         $this->entityManager->expects($this->once())->method('flush');
-        $this->attemptRepository->expects($this->once())->method('add');
         $this->reportingClient->expects($this->once())->method('registerAttempt');
 
         $result = $this->service->completeActivity(1, 'A1', '1_0_2', 90);

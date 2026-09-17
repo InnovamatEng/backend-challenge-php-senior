@@ -28,9 +28,6 @@ services:
     App\Domain\Repository\StudentProgressRepositoryInterface:
         alias: App\Infrastructure\Persistence\Doctrine\DoctrineStudentProgressRepository
 
-    App\Domain\Repository\ActivityAttemptRepositoryInterface:
-        alias: App\Infrastructure\Persistence\Doctrine\DoctrineActivityAttemptRepository
-
 when@test:
     services:
         App\Tests\Behat\:

@@ -34,7 +34,6 @@ class FeatureContext implements Context
     {
         $conn = $this->em->getConnection();
         $conn->executeStatement('SET FOREIGN_KEY_CHECKS=0');
-        $conn->executeStatement('TRUNCATE TABLE activity_attempts');
         $conn->executeStatement('TRUNCATE TABLE student_progress');
         $conn->executeStatement('TRUNCATE TABLE activities');
         $conn->executeStatement('TRUNCATE TABLE itineraries');
@@ -73,9 +72,6 @@ class FeatureContext implements Context
         );
         $conn->executeStatement(
             "INSERT INTO student_progress (student_id, itinerary_id, current_activity_id, completed, last_score, started_at) VALUES (2, 1, 2, 0, 1.0, NOW())"
-        );
-        $conn->executeStatement(
-            "INSERT INTO activity_attempts (student_id, activity_identifier, itinerary_slug, score, time_spent, answers, completed_at) VALUES (2, 'A1', 'additions', 1.0, 90, '1_0_2', NOW())"
         );
     }
 
@@ -167,22 +163,6 @@ class FeatureContext implements Context
         if ($this->calculatedScore !== $expectedScore) {
             throw new \RuntimeException(
                 sprintf('Expected score %s but got %s', $expectedScore, $this->calculatedScore)
-            );
-        }
-    }
-
-    /**
-     * @Then an attempt should be recorded for student :studentId on activity :activityIdentifier
-     */
-    public function anAttemptShouldBeRecorded(int $studentId, string $activityIdentifier): void
-    {
-        $count = (int) $this->em->getConnection()->fetchOne(
-            "SELECT COUNT(*) FROM activity_attempts WHERE student_id = $studentId AND activity_identifier = '$activityIdentifier'"
-        );
-
-        if ($count !== 1) {
-            throw new \RuntimeException(
-                sprintf('Expected 1 attempt for student %d on activity "%s", found %d', $studentId, $activityIdentifier, $count)
             );
         }
     }

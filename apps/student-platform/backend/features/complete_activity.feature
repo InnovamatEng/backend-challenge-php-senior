@@ -14,7 +14,6 @@ Feature: Complete activity
     Then the response status code should be 200
     And the response should contain "score"
     And the field "score" should equal 1.0
-    And an attempt should be recorded for student 1 on activity "A1"
 
   Scenario: Activity is completed with partial correct answers
     Given I am authenticated as "alice@innovamat.com" with password "password123"

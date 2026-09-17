@@ -3,7 +3,6 @@
 namespace App\Infrastructure\DataFixtures;
 
 use App\Domain\Model\Activity;
-use App\Domain\Model\ActivityAttempt;
 use App\Domain\Model\Itinerary;
 use App\Domain\Model\Student;
 use App\Domain\Model\StudentProgress;
@@ -82,17 +81,6 @@ class AppFixtures extends Fixture
         $bobProgress->setCurrentActivity($activities['A2']);
         $bobProgress->setLastScore(1.0);
         $manager->persist($bobProgress);
-
-        // Bob's attempt on A1
-        $bobAttempt = new ActivityAttempt();
-        $bobAttempt->setStudentId($bob->getId());
-        $bobAttempt->setActivityIdentifier('A1');
-        $bobAttempt->setItinerarySlug('additions');
-        $bobAttempt->setScore(1.0);
-        $bobAttempt->setTimeSpent(90);
-        $bobAttempt->setAnswers('1_0_2');
-        $bobAttempt->setCompletedAt(new \DateTimeImmutable('-1 day'));
-        $manager->persist($bobAttempt);
 
         $manager->flush();
     }
