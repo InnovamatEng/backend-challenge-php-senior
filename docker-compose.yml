@@ -97,7 +97,7 @@ services:
     networks:
       - innovamat
     depends_on:
-      mysql:
+      reporting_mysql:
         condition: service_healthy
 
   reporting_nginx:
@@ -113,9 +113,30 @@ services:
     depends_on:
       - reporting_php
 
+  reporting_mysql:
+    image: mysql:8.0
+    container_name: innovamat_reporting_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: reporting
+      MYSQL_USER: reporting
+      MYSQL_PASSWORD: reporting
+    ports:
+      - "3308:3306"
+    volumes:
+      - reporting_mysql_data:/var/lib/mysql
+    networks:
+      - innovamat
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
 networks:
   innovamat:
     driver: bridge
 
 volumes:
   mysql_data:
+  reporting_mysql_data:
