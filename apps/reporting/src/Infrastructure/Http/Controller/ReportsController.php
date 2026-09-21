@@ -2,7 +2,7 @@
 
 namespace App\Infrastructure\Http\Controller;
 
-use App\Domain\Repository\ActivityStatsRepositoryInterface;
+use App\Infrastructure\Persistence\Doctrine\DoctrineActivityStatsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Attribute\Route;
@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Attribute\Route;
 class ReportsController extends AbstractController
 {
     public function __construct(
-        private readonly ActivityStatsRepositoryInterface $statsRepository,
+        private readonly DoctrineActivityStatsRepository $statsRepository,
     ) {
     }
 

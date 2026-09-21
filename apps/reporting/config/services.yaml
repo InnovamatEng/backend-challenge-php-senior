@@ -11,6 +11,3 @@ services:
             - '../src/DependencyInjection/'
             - '../src/Domain/Model/'
             - '../src/Kernel.php'
-
-    App\Domain\Repository\ActivityStatsRepositoryInterface:
-        alias: App\Infrastructure\Persistence\Doctrine\DoctrineActivityStatsRepository

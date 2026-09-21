@@ -3,12 +3,12 @@
 namespace App\Application\Service;
 
 use App\Domain\Model\ActivityStats;
-use App\Domain\Repository\ActivityStatsRepositoryInterface;
+use App\Infrastructure\Persistence\Doctrine\DoctrineActivityStatsRepository;
 
 class AttemptService
 {
     public function __construct(
-        private readonly ActivityStatsRepositoryInterface $statsRepository,
+        private readonly DoctrineActivityStatsRepository $statsRepository,
     ) {
     }
 

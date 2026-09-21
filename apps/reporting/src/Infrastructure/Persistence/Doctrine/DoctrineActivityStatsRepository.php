@@ -3,11 +3,10 @@
 namespace App\Infrastructure\Persistence\Doctrine;
 
 use App\Domain\Model\ActivityStats;
-use App\Domain\Repository\ActivityStatsRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
-class DoctrineActivityStatsRepository extends ServiceEntityRepository implements ActivityStatsRepositoryInterface
+class DoctrineActivityStatsRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
