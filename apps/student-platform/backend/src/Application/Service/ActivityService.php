@@ -4,19 +4,19 @@ namespace App\Application\Service;
 
 use App\Domain\Model\Activity;
 use App\Domain\Model\StudentProgress;
-use App\Domain\Repository\ActivityRepositoryInterface;
-use App\Domain\Repository\ItineraryRepositoryInterface;
-use App\Domain\Repository\StudentProgressRepositoryInterface;
-use App\Domain\Repository\StudentRepositoryInterface;
+use App\Infrastructure\Persistence\Doctrine\DoctrineActivityRepository;
+use App\Infrastructure\Persistence\Doctrine\DoctrineItineraryRepository;
+use App\Infrastructure\Persistence\Doctrine\DoctrineStudentProgressRepository;
+use App\Infrastructure\Persistence\Doctrine\DoctrineStudentRepository;
 use App\Infrastructure\Reporting\ReportingClient;
 use Doctrine\ORM\EntityManagerInterface;
 class ActivityService
 {
     public function __construct(
-        private readonly ActivityRepositoryInterface $activityRepository,
-        private readonly ItineraryRepositoryInterface $itineraryRepository,
-        private readonly StudentRepositoryInterface $studentRepository,
-        private readonly StudentProgressRepositoryInterface $progressRepository,
+        private readonly DoctrineActivityRepository $activityRepository,
+        private readonly DoctrineItineraryRepository $itineraryRepository,
+        private readonly DoctrineStudentRepository $studentRepository,
+        private readonly DoctrineStudentProgressRepository $progressRepository,
         private readonly EntityManagerInterface $entityManager,
         private readonly ReportingClient $reportingClient,
     ) {

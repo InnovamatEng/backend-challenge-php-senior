@@ -2,7 +2,7 @@
 
 namespace App\Infrastructure\Http\Controller;
 
-use App\Domain\Repository\ItineraryRepositoryInterface;
+use App\Infrastructure\Persistence\Doctrine\DoctrineItineraryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ItineraryController extends AbstractController
 {
     public function __construct(
-        private readonly ItineraryRepositoryInterface $itineraryRepository,
+        private readonly DoctrineItineraryRepository $itineraryRepository,
     ) {
     }
 

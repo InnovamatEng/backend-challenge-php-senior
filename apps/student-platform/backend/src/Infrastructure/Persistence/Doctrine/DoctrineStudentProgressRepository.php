@@ -5,11 +5,10 @@ namespace App\Infrastructure\Persistence\Doctrine;
 use App\Domain\Model\Itinerary;
 use App\Domain\Model\Student;
 use App\Domain\Model\StudentProgress;
-use App\Domain\Repository\StudentProgressRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
-class DoctrineStudentProgressRepository extends ServiceEntityRepository implements StudentProgressRepositoryInterface
+class DoctrineStudentProgressRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {

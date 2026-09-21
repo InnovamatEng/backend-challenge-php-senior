@@ -16,18 +16,6 @@ services:
         arguments:
             $baseUrl: '%env(REPORTING_BASE_URL)%'
 
-    App\Domain\Repository\ActivityRepositoryInterface:
-        alias: App\Infrastructure\Persistence\Doctrine\DoctrineActivityRepository
-
-    App\Domain\Repository\ItineraryRepositoryInterface:
-        alias: App\Infrastructure\Persistence\Doctrine\DoctrineItineraryRepository
-
-    App\Domain\Repository\StudentRepositoryInterface:
-        alias: App\Infrastructure\Persistence\Doctrine\DoctrineStudentRepository
-
-    App\Domain\Repository\StudentProgressRepositoryInterface:
-        alias: App\Infrastructure\Persistence\Doctrine\DoctrineStudentProgressRepository
-
 when@test:
     services:
         App\Tests\Behat\:

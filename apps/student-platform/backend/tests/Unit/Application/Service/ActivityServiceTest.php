@@ -7,29 +7,29 @@ use App\Domain\Model\Activity;
 use App\Domain\Model\Itinerary;
 use App\Domain\Model\Student;
 use App\Domain\Model\StudentProgress;
-use App\Domain\Repository\ActivityRepositoryInterface;
-use App\Domain\Repository\ItineraryRepositoryInterface;
-use App\Domain\Repository\StudentProgressRepositoryInterface;
-use App\Domain\Repository\StudentRepositoryInterface;
+use App\Infrastructure\Persistence\Doctrine\DoctrineActivityRepository;
+use App\Infrastructure\Persistence\Doctrine\DoctrineItineraryRepository;
+use App\Infrastructure\Persistence\Doctrine\DoctrineStudentProgressRepository;
+use App\Infrastructure\Persistence\Doctrine\DoctrineStudentRepository;
 use App\Infrastructure\Reporting\ReportingClient;
 use Doctrine\ORM\EntityManagerInterface;
 use PHPUnit\Framework\TestCase;
 class ActivityServiceTest extends TestCase
 {
-    private ActivityRepositoryInterface $activityRepository;
-    private ItineraryRepositoryInterface $itineraryRepository;
-    private StudentRepositoryInterface $studentRepository;
-    private StudentProgressRepositoryInterface $progressRepository;
+    private DoctrineActivityRepository $activityRepository;
+    private DoctrineItineraryRepository $itineraryRepository;
+    private DoctrineStudentRepository $studentRepository;
+    private DoctrineStudentProgressRepository $progressRepository;
     private EntityManagerInterface $entityManager;
     private ReportingClient $reportingClient;
     private ActivityService $service;
 
     protected function setUp(): void
     {
-        $this->activityRepository = $this->createMock(ActivityRepositoryInterface::class);
-        $this->itineraryRepository = $this->createMock(ItineraryRepositoryInterface::class);
-        $this->studentRepository = $this->createMock(StudentRepositoryInterface::class);
-        $this->progressRepository = $this->createMock(StudentProgressRepositoryInterface::class);
+        $this->activityRepository = $this->createMock(DoctrineActivityRepository::class);
+        $this->itineraryRepository = $this->createMock(DoctrineItineraryRepository::class);
+        $this->studentRepository = $this->createMock(DoctrineStudentRepository::class);
+        $this->progressRepository = $this->createMock(DoctrineStudentProgressRepository::class);
         $this->entityManager = $this->createMock(EntityManagerInterface::class);
         $this->reportingClient = $this->createMock(ReportingClient::class);
 

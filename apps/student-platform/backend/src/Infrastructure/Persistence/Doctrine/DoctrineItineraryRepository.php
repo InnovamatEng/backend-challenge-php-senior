@@ -3,11 +3,10 @@
 namespace App\Infrastructure\Persistence\Doctrine;
 
 use App\Domain\Model\Itinerary;
-use App\Domain\Repository\ItineraryRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
-class DoctrineItineraryRepository extends ServiceEntityRepository implements ItineraryRepositoryInterface
+class DoctrineItineraryRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {

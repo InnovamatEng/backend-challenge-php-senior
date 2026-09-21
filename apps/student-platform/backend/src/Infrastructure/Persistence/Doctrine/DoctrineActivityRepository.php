@@ -4,11 +4,10 @@ namespace App\Infrastructure\Persistence\Doctrine;
 
 use App\Domain\Model\Activity;
 use App\Domain\Model\Itinerary;
-use App\Domain\Repository\ActivityRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
-class DoctrineActivityRepository extends ServiceEntityRepository implements ActivityRepositoryInterface
+class DoctrineActivityRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {

@@ -2,7 +2,7 @@
 
 namespace App\Infrastructure\Http\Controller;
 
-use App\Domain\Repository\StudentRepositoryInterface;
+use App\Infrastructure\Persistence\Doctrine\DoctrineStudentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class StudentController extends AbstractController
 {
     public function __construct(
-        private readonly StudentRepositoryInterface $studentRepository,
+        private readonly DoctrineStudentRepository $studentRepository,
     ) {
     }
 

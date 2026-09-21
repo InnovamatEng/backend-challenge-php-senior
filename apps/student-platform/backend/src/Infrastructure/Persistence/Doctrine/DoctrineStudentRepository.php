@@ -3,11 +3,10 @@
 namespace App\Infrastructure\Persistence\Doctrine;
 
 use App\Domain\Model\Student;
-use App\Domain\Repository\StudentRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
-class DoctrineStudentRepository extends ServiceEntityRepository implements StudentRepositoryInterface
+class DoctrineStudentRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
