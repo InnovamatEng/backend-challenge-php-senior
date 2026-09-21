@@ -60,7 +60,7 @@ class ActivityService
         return $this->formatActivity($progress->getCurrentActivity());
     }
 
-    public function completeActivity(int $studentId, string $activityIdentifier, string $answers, int $timeSpent): array
+    public function completeActivity(int $studentId, string $activityIdentifier, string $answers, int $time): array
     {
         $student = $this->studentRepository->findById($studentId);
         if (!$student) {
@@ -124,7 +124,7 @@ class ActivityService
             'itinerary' => $itinerary->getSlug(),
             'score' => $score,
             'passed' => $score >= 0.75,
-            'time_spent' => $timeSpent,
+            'time_spent' => $time,
             'completed_at' => (new \DateTimeImmutable())->format(\DateTimeInterface::ATOM),
         ]);
 

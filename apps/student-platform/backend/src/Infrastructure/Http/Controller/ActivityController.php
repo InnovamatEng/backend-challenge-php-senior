@@ -47,8 +47,8 @@ class ActivityController extends AbstractController
 
         $activityIdentifier = $data['activity_id'] ?? null;
         $answers = $data['answers'] ?? '';
-        $timeSpentMinutes = $data['time_spent'] ?? 0;
-        $timeSpentSeconds = $timeSpentMinutes * 60;
+        $tm = $data['time_spent'] ?? 0;
+        $ts = $tm * 60;
 
         $studentId = $data['student_id'] ?? $student->getId();
 
@@ -61,7 +61,7 @@ class ActivityController extends AbstractController
                 (int) $studentId,
                 $activityIdentifier,
                 $answers,
-                $timeSpentSeconds
+                $ts
             );
 
             return new JsonResponse([
