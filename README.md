@@ -114,19 +114,29 @@ make -C apps/reporting logs
 
 ### Debugging with Xdebug (macOS)
 
-Xdebug is preconfigured in the PHP Docker container and exposed on port `9003`.
+Xdebug is preconfigured in both PHP Docker containers. Both connect to port `9003`, and each app lives at its own path inside its container so a single listener can map both:
+
+| App | Container | Code path in container |
+|-----|-----------|------------------------|
+| Student platform | `platform_php` | `/var/www/platform` |
+| Reporting | `reporting_php` | `/var/www/reporting` |
 
 1. Rebuild and restart containers so the extension is installed:
 
 ```bash
-docker compose build platform_php
+docker compose build platform_php reporting_php
 docker compose up -d
 ```
 
-2. In Cursor/VS Code, install the `PHP Debug` extension (`xdebug.php-debug`).
-3. Use the included launch config and start **Listen for Xdebug (Docker)**.
-4. Set breakpoints in files under `apps/student-platform/backend/src`.
+2. In Cursor/VS Code, open the repo root and install the `PHP Debug` extension (`xdebug.php-debug`).
+3. Open Run and Debug (`Cmd+Shift+D`), select **Listen for Xdebug (Docker)** and press `F5`. The single listener serves both apps.
+4. Set breakpoints in files under `apps/student-platform/backend/src` or `apps/reporting/src`.
 5. Trigger any API request (for example, with `curl` or the frontend). The debugger will stop on breakpoints.
+
+```bash
+curl http://localhost:8080/api/students          # student platform
+curl http://localhost:8081/reports/activities    # reporting
+```
 
 Optional environment overrides in `docker-compose.yml`:
 

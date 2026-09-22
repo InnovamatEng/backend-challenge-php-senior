@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y \
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-WORKDIR /var/www
+WORKDIR /var/www/platform
 
 COPY apps/student-platform/backend/etc/docker/php/conf.d/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
@@ -26,7 +26,7 @@ COPY apps/student-platform/backend/ .
 
 RUN composer install --no-interaction --optimize-autoloader
 
-RUN chown -R www-data:www-data /var/www
+RUN chown -R www-data:www-data /var/www/platform
 
 EXPOSE 9000
 CMD ["php-fpm"]
