@@ -30,9 +30,35 @@ itinerary as the previous weeks.
 4. In that case the same activity is offered again as if it had never been
    submitted.
 
-## What product wants to know
+## Suspicions
 
-- Why is this happening?
-- Is student data being lost?
-- What should we do about it, short term and long term, so that finishing an
-  activity is as fast and reliable as getting the next one?
+A colleague has seen in the monitoring system that the reporting service had
+temporary failures during that day.
+
+## Deliverables
+
+Your mission is to:
+
+- Find the problems that are causing this situation
+- Propose an evolution of the system that fixes them
+- Explain how you would make your solution happen
+
+## About the format
+
+This is a conversation at the whiteboard, where it is important that you
+explain out loud the reasons behind your decisions. You can ask all the
+questions you need, and we will also ask you questions or make comments when we
+see fit.
+
+## What we evaluate
+
+There may be several valid answers, so what matters is that you explain why you
+would go for the solution you propose.
+
+We will evaluate:
+
+- Debugging
+- Your knowledge of distributed systems
+- Scalability, maintainability, reliability and consistency of the system
+- How you communicate
+- Pragmatism

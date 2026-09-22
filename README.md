@@ -1,4 +1,4 @@
-# Innovamat coding challenge
+# Innovamat challenge
 
 ## Session schedule
 
