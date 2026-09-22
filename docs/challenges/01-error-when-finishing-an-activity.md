@@ -1,10 +1,4 @@
----
-type: bug
-title: Finishing an activity is slow and sometimes fails, and students have to redo it
-reported_by: Support, on behalf of a teacher at a school in Terrassa
-reported_on: 2026-09-14
-priority: high
----
+# Finishing an activity is slow and sometimes fails, and students have to redo it
 
 ## What has been reported
 

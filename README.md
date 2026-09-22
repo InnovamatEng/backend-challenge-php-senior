@@ -4,34 +4,21 @@
 
 Read [the domain context](docs/domain-context.md) first: it explains what the application does and how it works.
 
-The work is described as two tickets, to be done in this order:
+The work is described as two challenges, to be done in this order:
 
-1. [#4821 · Finishing an activity is slow and sometimes fails](docs/tickets/4821-error-when-finishing-an-activity.md) (bug)
-2. [#4795 · Adaptive difficulty: let students jump levels](docs/tickets/4795-adaptive-difficulty-level-jumping.md) (feature)
+1. [Challenge 1 · Finishing an activity is slow and sometimes fails](docs/challenges/01-error-when-finishing-an-activity.md) (bug)
+2. [Challenge 2 · Adaptive difficulty: let students jump levels](docs/challenges/02-adaptive-difficulty-level-jumping.md) (feature)
 
 ### Session schedule
 
 | Block                            | Duration |
 | -------------------------------- | -------- |
 | Introduction and setup check     | 15 min   |
-| First ticket: #4821 (bug)        | ~1h 15   |
+| Challenge 1 (bug)                | ~1h 15   |
 | Break                            | 5-10 min |
-| Second ticket: #4795 (feature)   | ~2h      |
+| Challenge 2 (feature)            | ~2h      |
 
-The durations are an orientation, not a limit per ticket.
-
-## Evaluation Criteria
-
-The challenge is assessed across the following dimensions:
-
-| Dimension                        | What we evaluate                                                                                      |
-| -------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| Architecture & DDD               | Clear boundaries between layers, proper use of domain concepts, and maintainable design decisions     |
-| Code Quality & SOLID             | Readability, cohesion, duplication control, error handling quality, and refactoring depth             |
-| Security                         | Authentication/authorization robustness, safe data access patterns, and risk mitigation mindset       |
-| Testing Strategy                 | Appropriate test pyramid, test quality, meaningful coverage of edge cases, and confidence in changes  |
-| API, Observability & Concurrency | API consistency, operational visibility (logging), and data integrity under concurrent scenarios      |
-| Developer Experience & DevOps    | Efficient Docker builds (layer cache usage), reproducible environments, and practical local workflow; |
+The durations are an orientation, not a limit per challenge.
 
 ---
 

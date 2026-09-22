@@ -1,10 +1,4 @@
----
-type: feature
-title: Adaptive difficulty: let students jump levels based on score and time
-reported_by: Product, pedagogy team
-reported_on: 2026-09-01
-priority: high
----
+# Adaptive difficulty: let students jump levels based on score and time
 
 ## What is asked
 
@@ -59,3 +53,16 @@ on the activity and the score.
 2. Analyze the current solution to identify code smells and/or bad practices.
 3. Refactor whatever you consider that can improve the application's design, quality and resilience. You can assume all proposed changes will not break BC.
 4. Propose (and apply) any technique or tool that can help to improve developer's experience.
+
+## Evaluation Criteria
+
+The challenge is assessed across the following dimensions:
+
+| Dimension                        | What we evaluate                                                                                      |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| Architecture & DDD               | Clear boundaries between layers, proper use of domain concepts, and maintainable design decisions     |
+| Code Quality & SOLID             | Readability, cohesion, duplication control, error handling quality, and refactoring depth             |
+| Security                         | Authentication/authorization robustness, safe data access patterns, and risk mitigation mindset       |
+| Testing Strategy                 | Appropriate test pyramid, test quality, meaningful coverage of edge cases, and confidence in changes  |
+| API, Observability & Concurrency | API consistency, operational visibility (logging), and data integrity under concurrent scenarios      |
+| Developer Experience & DevOps    | Efficient Docker builds (layer cache usage), reproducible environments, and practical local workflow; |
