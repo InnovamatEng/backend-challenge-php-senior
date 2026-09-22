@@ -1,5 +1,9 @@
 # Finishing an activity is slow and sometimes fails, and students have to redo it
 
+- **Challenge Type:** System Design Interview
+- **Duration:** ~1h 15
+- **Use of AI:** Not allowed
+
 ## What has been reported
 
 Since a few weeks, finishing an activity has become slow. After pressing

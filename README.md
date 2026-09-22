@@ -4,19 +4,15 @@
 
 Read [the domain context](docs/domain-context.md) first: it explains what the application does and how it works.
 
-The work is described as two challenges, to be done in this order:
-
-1. [Challenge 1 · Finishing an activity is slow and sometimes fails](docs/challenges/01-error-when-finishing-an-activity.md) (bug)
-2. [Challenge 2 · Adaptive difficulty: let students jump levels](docs/challenges/02-adaptive-difficulty-level-jumping.md) (feature)
-
 ### Session schedule
 
-| Block                            | Duration |
-| -------------------------------- | -------- |
-| Introduction and setup check     | 15 min   |
-| Challenge 1 (bug)                | ~1h 15   |
-| Break                            | 5-10 min |
-| Challenge 2 (feature)            | ~2h      |
+| Block                                                                                           | Duration |
+| ----------------------------------------------------------------------------------------------- | -------- |
+| Introduction and setup check                                                                    | 15 min   |
+| [Challenge 1 - System Design Interview](docs/challenges/01-error-when-finishing-an-activity.md) | ~1h 15   |
+| Break                                                                                           | 5-10 min |
+| [Challenge 2 - Coding exercise](docs/challenges/02-adaptive-difficulty-level-jumping.md)        | ~1h 45   |
+| Wrap-up and questions                                                                           | 15 min   |
 
 The durations are an orientation, not a limit per challenge.
 

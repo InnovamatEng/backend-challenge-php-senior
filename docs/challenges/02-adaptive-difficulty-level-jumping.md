@@ -1,5 +1,11 @@
 # Adaptive difficulty: let students jump levels based on score and time
 
+- **Challenge Type:** Coding exercise
+- **Duration:** ~1h 45
+- **Use of AI:** Allowed
+
+> **A note on AI.** You may use AI agents, and how you use them is part of what we evaluate. What matters most to us is your judgement: the decisions you take and why you take them. Use AI as a tool to get where you want to go, not as a way to skip deciding where that is. Handing the whole exercise to an agent and accepting whatever comes back tells us very little about you, so explain your reasoning as you go.
+
 ## What is asked
 
 To provide more adaptability to the itinerary, the API will do an additional computation to
@@ -66,3 +72,4 @@ The challenge is assessed across the following dimensions:
 | Testing Strategy                 | Appropriate test pyramid, test quality, meaningful coverage of edge cases, and confidence in changes  |
 | API, Observability & Concurrency | API consistency, operational visibility (logging), and data integrity under concurrent scenarios      |
 | Developer Experience & DevOps    | Efficient Docker builds (layer cache usage), reproducible environments, and practical local workflow; |
+| Development workflow             | Small and safe steps, and effective use of AI agents                                                  |
