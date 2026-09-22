@@ -2,7 +2,7 @@
 
 ## The Challenge
 
-Read [the domain context](docs/domain-context.md) first: it explains what the application does and how it works.
+Read [the domain and architecture context](docs/domain-and-architecture-context.md) first: it explains what the applications do and how they work.
 
 ### Session schedule
 

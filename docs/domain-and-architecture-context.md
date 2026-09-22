@@ -1,4 +1,11 @@
-# Domain context
+# Domain and architecture context
+
+The system is made of two applications, each with its own codebase and database:
+
+- **Student platform** (`apps/student-platform`): the application students use to do the activities of an itinerary.
+- **Reporting** (`apps/reporting`): the application that keeps the statistics of the activities, fed by the student platform.
+
+## Student platform
 
 As a part of the MVP of the Innovamat application, it is needed to develop a functionality to provide the students a set of activities of an area (for example additions) so they can have a productive learning process.
 
@@ -48,3 +55,12 @@ when he/she asks for the next activity. To do it, the last activity result, and 
 If the activity done is the last activity of the itinerary and it is correctly completed, no computation will be done.
 
 The score is computed comparing the given answer with the solution of the activity.
+
+## Reporting
+
+Reporting exposes the **activity report**: the global statistics of each activity, computed over all the attempts from all students:
+
+- How many times it has been attempted
+- How many of those attempts were passed
+- The average score
+- The average time spent
