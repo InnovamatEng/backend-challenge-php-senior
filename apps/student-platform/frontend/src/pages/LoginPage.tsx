@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import {
   Box,
   Button,
@@ -15,6 +15,7 @@ import {
   Alert,
 } from '@mui/material';
 import SchoolIcon from '@mui/icons-material/School';
+import BarChartIcon from '@mui/icons-material/BarChart';
 import apiClient from '../api/client';
 import { Student, Itinerary } from '../types';
 
@@ -78,7 +79,8 @@ export default function LoginPage() {
         p: 2,
       }}
     >
-      <Card sx={{ maxWidth: 440, width: '100%', borderRadius: 3, boxShadow: 8 }}>
+      <Box sx={{ maxWidth: 440, width: '100%' }}>
+      <Card sx={{ borderRadius: 3, boxShadow: 8 }}>
         <CardContent sx={{ p: 4 }}>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 3 }}>
             <SchoolIcon sx={{ fontSize: 36, color: 'primary.main' }} />
@@ -154,6 +156,30 @@ export default function LoginPage() {
           </Typography>
         </CardContent>
       </Card>
+
+      <Box sx={{ mt: 3, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1.5 }}>
+        <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.75)' }}>
+          Are you a teacher?
+        </Typography>
+        <Button
+          component={RouterLink}
+          to="/reports"
+          size="small"
+          variant="outlined"
+          startIcon={<BarChartIcon />}
+          sx={{
+            color: 'white',
+            borderColor: 'rgba(255,255,255,0.5)',
+            borderRadius: 2,
+            textTransform: 'none',
+            fontWeight: 600,
+            '&:hover': { borderColor: 'white', bgcolor: 'rgba(255,255,255,0.12)' },
+          }}
+        >
+          Activity reports
+        </Button>
+      </Box>
+      </Box>
     </Box>
   );
 }

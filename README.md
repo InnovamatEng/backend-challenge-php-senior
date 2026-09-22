@@ -36,6 +36,7 @@ make setup
 # Access the application
 # Backend API:  http://localhost:8080/api
 # Frontend:     http://localhost:3000
+# Reports page: http://localhost:3000/reports
 # Reporting:    http://localhost:8081
 ```
 

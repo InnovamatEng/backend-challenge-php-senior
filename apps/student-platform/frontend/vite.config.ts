@@ -6,10 +6,16 @@ export default defineConfig({
   server: {
     port: 3000,
     proxy: {
-      '/api': {
+      '/platform/api': {
         target: 'http://platform_nginx:80',
         changeOrigin: true,
-      }
+        rewrite: (path) => path.replace(/^\/platform/, ''),
+      },
+      '/reporting/api': {
+        target: 'http://reporting_nginx:80',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/reporting\/api/, ''),
+      },
     }
   }
 })

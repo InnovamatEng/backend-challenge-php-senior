@@ -26,6 +26,16 @@ export interface CompletionResult {
   next_activity: Activity | null;
 }
 
+export interface ActivityStats {
+  activity_id: string;
+  itinerary: string;
+  attempts_count: number;
+  passed_count: number;
+  average_score: number;
+  average_time_spent: number;
+  last_attempt_at: string;
+}
+
 export interface AuthState {
   token: string | null;
   student: Student | null;

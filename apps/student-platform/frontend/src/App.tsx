@@ -3,6 +3,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import LoginPage from './pages/LoginPage';
 import ItineraryPage from './pages/ItineraryPage';
 import CompletedPage from './pages/CompletedPage';
+import ReportsPage from './pages/ReportsPage';
 
 const theme = createTheme({
   palette: {
@@ -30,6 +31,7 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LoginPage />} />
+          <Route path="/reports" element={<ReportsPage />} />
           <Route
             path="/itinerary"
             element={
