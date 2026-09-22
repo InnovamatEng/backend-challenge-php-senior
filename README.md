@@ -1,22 +1,21 @@
 # Innovamat coding challenge
 
-## The Challenge
+## Session schedule
 
-Read [the domain and architecture context](docs/domain-and-architecture-context.md) first: it explains what the applications do and how they work.
+| Block                                                                                           | Duration * |
+| ----------------------------------------------------------------------------------------------- | ---------- |
+| Introduction and setup check                                                                    | 15 min     |
+| [Challenge 1 - System Design Interview](docs/challenges/01-error-when-finishing-an-activity.md) | ~1h 15     |
+| Break                                                                                           | 5-10 min   |
+| [Challenge 2 - Coding exercise](docs/challenges/02-adaptive-difficulty-level-jumping.md)        | ~1h 45     |
+| Wrap-up and questions                                                                           | 15 min     |
 
-### Session schedule
+*The durations are an orientation, not a limit per challenge.
 
-| Block                                                                                           | Duration |
-| ----------------------------------------------------------------------------------------------- | -------- |
-| Introduction and setup check                                                                    | 15 min   |
-| [Challenge 1 - System Design Interview](docs/challenges/01-error-when-finishing-an-activity.md) | ~1h 15   |
-| Break                                                                                           | 5-10 min |
-| [Challenge 2 - Coding exercise](docs/challenges/02-adaptive-difficulty-level-jumping.md)        | ~1h 45   |
-| Wrap-up and questions                                                                           | 15 min   |
 
-The durations are an orientation, not a limit per challenge.
+## Documentation
 
----
+The [domain and architecture context](docs/domain-and-architecture-context.md) document explains what the system applications do and how they work.
 
 ## Setup & Running
 
