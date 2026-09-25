@@ -1,0 +1,24 @@
+parameters:
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Domain/Model/'
+            - '../src/Kernel.php'
+
+    App\Infrastructure\Reporting\ReportingClient:
+        arguments:
+            $baseUrl: '%env(REPORTING_BASE_URL)%'
+
+when@test:
+    services:
+        App\Tests\Behat\:
+            resource: '../tests/Behat/'
+            autowire: true
+            autoconfigure: true
