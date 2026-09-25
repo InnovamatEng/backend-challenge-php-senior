@@ -66,7 +66,7 @@ export default function ReportsPage() {
       const response = await reportsClient.get<ActivityStats[]>('/activities');
       setStats(response.data);
     } catch {
-      setError('Could not load the activity reports. Make sure the reporting service is running.');
+      setError('Something went wrong. Please try again.');
     } finally {
       setLoading(false);
     }

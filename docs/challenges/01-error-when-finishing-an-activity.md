@@ -1,4 +1,4 @@
-# Finishing an activity is slow and sometimes fails, and students have to redo it
+# Finishing an activity fails and students lose their progress
 
 - **Challenge Type:** System Design Interview
 - **Duration:** ~1h 15
@@ -6,34 +6,24 @@
 
 ## What has been reported
 
-Since a few weeks, finishing an activity has become slow. After pressing
-"Submit", students wait several seconds before seeing their result, and some
-press the button twice because they think the first press did not work.
-Getting the next activity is as fast as it has always been.
+Yesterday afternoon a teacher reported that students could not finish their
+activities. When a student pressed "Submit", the page waited a few seconds and
+then showed:
 
-Sometimes it is worse than slow: the screen shows "something went wrong", and
-when the student goes back the activity they just finished is offered to them
-again, so they have to redo it.
+> Something went wrong. Please try again.
 
-It does not happen to everyone, and it is clearly worse in the afternoon. The
-teacher says that on Tuesday between 15:00 and 15:20 eleven students in one
-class got the error, and the rest of the class waited a long time on every
-activity. Nothing changed on their side: same devices, same network, same
+When the student retried, or went back to the itinerary, the same activity
+was offered again as if it had never been submitted, so they had to redo it.
+
+Nothing changed on the school side: same devices, same network, same
 itinerary as the previous weeks.
 
-## Steps the teacher followed
+## Also reported
 
-1. The student opens the itinerary and gets the next activity.
-2. The student answers the exercises and presses "Submit".
-3. The result takes several seconds to appear. Sometimes the error appears
-   instead, and the student goes back to the itinerary.
-4. In that case the same activity is offered again as if it had never been
-   submitted.
+That same afternoon, teachers opening the activity reports page saw this
+error instead of the report:
 
-## Suspicions
-
-A colleague has seen in the monitoring system that the reporting service had
-temporary failures during that day.
+> Something went wrong. Please try again.
 
 ## Deliverables
 

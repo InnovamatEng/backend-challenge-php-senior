@@ -1,7 +1,7 @@
 # Adaptive difficulty: let students jump levels based on score and time
 
 - **Challenge Type:** Coding exercise
-- **Duration:** ~1h 45
+- **Duration:** ~1h 30
 - **Use of AI:** Allowed
 
 > **A note on AI.** You may use AI agents, and how you use them is part of what we evaluate. What matters most to us is your judgement: the decisions you take and why you take them. Use AI as a tool to get where you want to go, not as a way to skip deciding where that is. Handing the whole exercise to an agent and accepting whatever comes back tells us very little about you, so explain your reasoning as you go.

@@ -1,16 +1,11 @@
 # Reporting service
 
-Receives every activity attempt from the student platform and serves the
-reports teachers use to follow their class: for each student, which activities
-they have completed, how many attempts each one took and with what score.
-
-Raw attempts are not retained. Each attempt is folded on arrival into the
-per-activity statistics that feed the activity dashboard, which keeps the
-storage small and the report queries cheap.
+Receives the activity attempts from the student platform and serves the
+activity report: the statistics of each activity, computed over the attempts
+of all students.
 
 | Method | URL                  | Description                                               |
 | ------ | -------------------- | --------------------------------------------------------- |
-| GET    | `/health`            | Liveness check                                            |
 | POST   | `/attempts`          | Register an activity attempt, returns the activity stats  |
 | GET    | `/reports/activities`| Statistics of every activity                              |
 

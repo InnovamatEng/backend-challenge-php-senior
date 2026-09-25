@@ -4,10 +4,10 @@
 
 | Block                                                                                           | Duration * |
 | ----------------------------------------------------------------------------------------------- | ---------- |
-| Introduction and setup check                                                                    | 15 min     |
+| Introduction and setup check                                                                    | 10 min     |
 | [Challenge 1 - System Design Interview](docs/challenges/01-error-when-finishing-an-activity.md) | ~1h 15     |
-| Break                                                                                           | 5-10 min   |
-| [Challenge 2 - Coding exercise](docs/challenges/02-adaptive-difficulty-level-jumping.md)        | ~1h 45     |
+| Break                                                                                           | 5 min      |
+| [Challenge 2 - Coding exercise](docs/challenges/02-adaptive-difficulty-level-jumping.md)        | ~1h 30     |
 | Wrap-up and questions                                                                           | 15 min     |
 
 *The durations are an orientation, not a limit per challenge.
@@ -52,6 +52,8 @@ make setup
 
 ### API Endpoints
 
+**Student platform** (`http://localhost:8080`)
+
 | Method | URL                     | Description                       |
 | ------ | ----------------------- | --------------------------------- |
 | POST   | `/api/login`            | Authenticate student, get JWT     |
@@ -60,7 +62,16 @@ make setup
 | GET    | `/api/students`         | List all students                 |
 | GET    | `/api/itineraries`      | List all itineraries              |
 
+**Reporting service** (`http://localhost:8081`)
+
+| Method | URL                   | Description                                              |
+| ------ | --------------------- | -------------------------------------------------------- |
+| POST   | `/attempts`           | Register an activity attempt, returns the activity stats |
+| GET    | `/reports/activities` | Statistics of every activity                             |
+
 ### Example API Usage
+
+**Student platform**
 
 ```bash
 # Login
@@ -77,6 +88,18 @@ curl -X POST http://localhost:8080/api/completeActivity \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer TOKEN" \
   -d '{"activity_id":"A1","student_id":1,"answers":"1_0_2","time_spent":2}'
+```
+
+**Reporting service**
+
+```bash
+# Register an attempt (normally sent by the student platform)
+curl -X POST http://localhost:8081/attempts \
+  -H "Content-Type: application/json" \
+  -d '{"student_id":1,"activity_id":"A1","itinerary":"additions","score":1.0,"passed":true,"time_spent":90,"completed_at":"2026-09-17T10:00:00+00:00"}'
+
+# Activity statistics
+curl http://localhost:8081/reports/activities
 ```
 
 ### Running Tests
